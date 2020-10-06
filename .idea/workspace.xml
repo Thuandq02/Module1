@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae02523-67a6-4d2e-857e-76d4d031f203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/form tìm kiếm.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/formdangky.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taobangcoban.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/taoformdongian.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simpleform.html" beforeDir="false" afterPath="$PROJECT_DIR$/simpleform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/survey.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,11 @@
       <workItem from="1601797538664" duration="1296000" />
       <workItem from="1601800150311" duration="636000" />
       <workItem from="1601861932240" duration="6395000" />
-      <workItem from="1601869927001" duration="343000" />
+      <workItem from="1601869927001" duration="7824000" />
+      <workItem from="1601884938690" duration="18000" />
+      <workItem from="1601891820995" duration="2286000" />
+      <workItem from="1601903389056" duration="922000" />
+      <workItem from="1601945976879" duration="1594000" />
     </task>
     <servers />
   </component>

@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3ae02523-67a6-4d2e-857e-76d4d031f203" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/formdangky.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taobangcoban.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taoformdongian.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bancovua.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lichthang10.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simpleform.html" beforeDir="false" afterPath="$PROJECT_DIR$/simpleform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/survey.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
       <workItem from="1601884938690" duration="18000" />
       <workItem from="1601891820995" duration="2286000" />
       <workItem from="1601903389056" duration="922000" />
-      <workItem from="1601945976879" duration="1594000" />
+      <workItem from="1601945976879" duration="7953000" />
     </task>
     <servers />
   </component>
@@ -81,9 +78,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="572" y="114" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1601868269351" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1601869982105">
+    <state x="277" y="57" key="SettingsEditor" timestamp="1601953242173">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601869982105" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1601953242173" />
   </component>
 </project>

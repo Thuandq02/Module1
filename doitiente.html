@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    Amount:
+    <input id="demo" type="text"/><br/>
+    From Currency:
+    <select id="one">
+        <option value="23000">VietNam</option>
+        <option value="1">USD</option>
+    </select><br/>
+    To Currency:
+    <select id="two">
+        <option value="1">USD</option>
+        <option value="23000">VietNam</option>
+    </select><br/>
+    <input type="button" value="convert" onclick="gui()"/>
+</form>
+<p id="result"></p>
+<script>
+    function gui() {
+        let demo = document.getElementById('demo').value;
+        let one = document.getElementById('one').value;
+        let two = document.getElementById('two').value;
+        let result = two * demo / one;
+        document.getElementById('result').innerHTML = 'ket qua:' + result;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="th"></p>
+<form>
+   Vat Ly:
+    <input name="physical" id="a" type="text"/><br/>
+    Hoa Hoc:
+    <input name="chemical" id="b" type="texxt"/><br/>
+    Sinh Hoc:
+    <input name="born" id="c" type="text"/><br/>
+    <button type="button" onclick="one()">medium score</button>
+    <button type="button" onclick="two()">total</button>
+</form>
+<script>
+    function one() {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        let c = document.getElementById('c').value;
+        let d = (parseInt(a) + parseInt(b) + parseInt(c)) / 3;
+        document.getElementById('th').innerHTML = d;
+    }
+    function two() {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        let c = document.getElementById('c').value;
+        let d = parseInt(a) + parseInt(b) + parseInt(c);
+        document.getElementById('th').innerHTML = d;
+    }
+</script>
+</body>
+</html>

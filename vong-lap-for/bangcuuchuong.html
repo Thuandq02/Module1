@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BẢNG CỬU CHƯƠNG</title>
+</head>
+<body>
+<h1 style="position: relative;left: 575px">BẢNG CỬU CHƯƠNG</h1>
+<script>
+    let area;
+    area= "<table border='1' width='1500' cellspacing='10' cellpadding='10'>";
+    for(let i = 1; i <= 10; i++) {
+        area = area + "<tr>";
+        for (let j = 2; j <=9; j++) {
+            area = area + "<td>" + i + "x" +j + "=" + i * j + "</td>";
+        }
+        area = area + "</tr>";
+    }
+    area = area + "</table>";
+    document.write(area);
+</script>
+</body>
+</html>

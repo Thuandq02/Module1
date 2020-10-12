@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = +prompt("nhập số nguyên tố cần in ra: ");
+    let interger = 2;
+    let count = 0;
+    while (interger > 0) {
+        if (total(interger)){
+            document.write("số nguyên tố là:" + interger + "<br/>");
+            count++;
+            if (count == number) {
+                break;
+            }
+        }
+        interger++;
+    }
+    function total(interger) {
+        for (let i = 2; i <= interger / 2; i++) {
+            if (interger % i == 0) {
+                return false;
+                }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

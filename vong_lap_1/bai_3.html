@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a =0;
+    let b =1;
+    let cons =0;
+    let c ="0,1,";
+    let number = +prompt('nhap so');
+    for (let i=2; i<number ;i++) {
+        c += a + b + ","
+        cons = a;
+        a = b;
+        b = cons + a;
+        }
+    document.write(c)
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //     Mô tả
+    // Xây dựng game caro đơn giản sử dụng phần thực hành về tạo bàn cờ caro.
+    // Bàn cờ thay vì số 0 hiển thị mặc định bằng dấu (.).
+    //
+    // Có 2 người chơi lần lượt nhập vào là X và O. Mỗi lần giá trị được nhập
+    //         vào thì bàn cờ thay đổi giá trị theo người chơi.
+    //
+    //     Xác định người chiến thằng nhập giá trị có 3 ô liên tiếp giống nhau.
+
+    let arrCaro = [];
+    let dong = 20;
+    let cot = 40;
+    let i = 2;
+
+    let sout = '<table align="center" border="1px solid black" cellspacing="0">';//cellpadding="25"
+    for (let i = 0; i < dong; i++) {
+        sout += "<tr>";
+        arrCaro[i] = new Array(cot);
+        for (let j = 0; j < cot; j++) {
+            sout += '<td id="inputCaro' + i + ',' + j + '" onclick="clickRowCol(' + i + ", " + j + ')"></td>';
+        }
+        sout += "</tr>";
+    }
+    sout += "</table>";
+    document.write(sout);
+
+    function clickRowCol(x, y) {
+        let getData = document.getElementById("inputCaro" + x + "," + y);
+        //console.log(getData);
+
+        if (i % 2 == 0) {
+            if (!getData.innerHTML) {
+                getData.innerHTML = "x";
+                i++;
+            }
+        } else {
+            if (!getData.innerHTML) {
+                getData.innerHTML = "o";
+                i++;
+            }
+        }
+
+        checkWin(x, y);
+    }
+
+    function getValueCell(x, y) {
+        let value = document.getElementById(`inputCaro${x},${y}`).innerHTML;
+        //console.log(x, y);
+        //console.log(value);
+        return value;
+    }
+
+    function checkWin(x, y) {
+        checkVertical(x, y);//check hang doc
+        checkHorizontal(x, y);//check hang ngang
+        checkDiagonal(x, y);//check duong cheo
+    }
+
+    function checkHorizontal(x, y) {//check theo hang ngang
+        let count = 1;
+        let i = 1;
+        while (getValueCell(x, y) === getValueCell(x, y + i)) {
+            count++;
+            i++;
+        }
+
+        let j = 1;
+        while (getValueCell(x, y) === getValueCell(x, y - j)) {
+            count++;
+            j++;
+        }
+        if (count >= 5) {
+            alert("Win roi");// win roi nhung ng sau bam van bao win???
+        }
+    }
+
+    function checkDiagonal(x, y) {//check theo duong cheo
+        let count = 1;
+        let i = 1;
+        while (getValueCell(x, y) === getValueCell(x + i, y + i)) {
+            count++;
+            i++;
+        }
+        let j = 1;
+        while (getValueCell(x, y) === getValueCell(x - j, y - j)) {
+            count++;
+            j++;
+        }
+
+        if (count >= 5) {
+            alert("Win roi");// win roi nhung ng sau bam van bao win???
+        }
+    }
+
+    function checkVertical(x, y) {//check theo hang doc
+        let count = 1;
+        let i = 1;
+        while (getValueCell(x, y) === getValueCell(x + i, y)) {
+            count++;
+            i++;
+        }
+        let j = 1;
+        while (getValueCell(x, y) === getValueCell(x - j, y)) {
+            count++;
+            j++;
+        }
+
+        if (count >= 5) {
+            alert("Win roi");// win roi nhung ng sau bam van bao win???
+        }
+    }
+
+</script>
+<style>
+
+    td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        font-size: 30px;
+    }
+</style>
+</body>
+</html>

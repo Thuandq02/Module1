@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //bai 1:
+    // myColor = ["Red", "Green", "White", "Black"];
+    // console.log(myColor.toString());
+    // console.log(myColor.join());
+    // console.log(myColor.join('+'));
+
+
+    //bai 2:
+    // const num=window.prompt();
+    // const array = num.toString();
+    // const result = [array[0]];
+    //
+    // for(let x=1; x<array.length; x++)
+    // {
+    //     if((array[x-1]%2 === 0)&&(array[x]%2 === 0))
+    //     {
+    //         result.push('-', array[x]);
+    //     }
+    //     else
+    //     {
+    //         result.push(array[x]);
+    //     }
+    // }
+    // console.log(result.join(''));
+
+
+    //bai 3:
+    let array = 'c';
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let result = [];
+
+    for(let x=0; x<array.length; x++)
+    {
+        if(UPPER.indexOf(array[x]) !== -1)
+        {
+            result.push(array[x].toLowerCase());
+        }
+        else if(LOWER.indexOf(array[x]) !== -1)
+        {
+            result.push(array[x].toUpperCase());
+        }
+        else
+        {
+            result.push(array[x]);
+        }
+    }
+    console.log(result.join(""));
+</script>
+</body>
+</html>

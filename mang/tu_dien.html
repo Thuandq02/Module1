@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<input id="inchar" type="tex" placeholder="tu muon dich"/>
+<input type ="button" onclick="got()" value="dich"/>
+<p id="result"></p>
+<body>
+<script>
+    function got(){
+        let arr1 = ["specific" , "measurable","archive" , "real" ,"time"];
+        let arr2 = ["cụ thể ","có thể đo được ","có thể đạt được","thực tế ","thời gian"];
+        let str =
+            document.getElementById("inchar").value;
+        let index = arr1.indexOf(str);
+        if (index === -1){
+            document.getElementById("result").innerHTML ="khong tim thay";
+        } else {
+    document.getElementById("result").innerHTML = arr2[index];
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="ban_kinh" type="text">
+<input id="dien_tich" type="button" onclick="dien_tich()" value="S">
+<input id="chu_vi" type="button" onclick="chu_vi()" value="C">
+<p id="ket-qua"></p>
+<script>
+    // Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được
+
+
+    function dien_tich() {
+        let r = document.getElementById('ban_kinh').value;
+        S = r * r * 3.14;
+        document.getElementById("ket-qua").innerHTML = S;
+    }
+    function chu_vi() {
+        let r = document.getElementById('ban_kinh').value;
+        C = r * 2 * 3.14;
+        document.getElementById("ket-qua").innerHTML = C;
+    }
+</script>
+</body>
+</html>

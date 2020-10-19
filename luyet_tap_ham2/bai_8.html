@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Bài 8: Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số nguyên đó.
+
+
+    let a = parseInt(prompt("so 1:"));
+    let b = parseInt(prompt("so 2:"));
+    let c = parseInt(prompt("so 3:"));
+    let d = parseInt(prompt("so 4:"));
+    let e = parseInt(prompt("so 5:"));
+    let x = [a, b, c, d, e];
+    let first = 0;
+    let last = x.length - 1;
+    while (first < last) {
+        let b = x[first];
+        x[first] = x[last];
+        x[last] = b;
+        first++;
+        last--;
+    }
+    document.write(x);
+</script>
+</body>
+</html>

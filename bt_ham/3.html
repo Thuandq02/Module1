@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 3: Viết hàm tìm giá trị lớn nhất, giá trị nhỏ nhất của một mảng. Mảng này người dùng nhập từ màn hình
+
+
+    let a = parseInt(prompt("so thu nhat:"));
+    let b = parseInt(prompt("so thu hai:"));
+    let c = parseInt(prompt("so thu ba:"));
+    let d = parseInt(prompt("so thu tu:"));
+    let e = parseInt(prompt("so thu nam:"));
+    let arr = [a, b, c, d, e];
+    let min = minArray(arr);
+    let max = maxArray(arr);
+    function minArray(arr) {
+        let min = arr[0];
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    alert("gia tri nho nhat:" + min);
+    function maxArray(arr) {
+        let max = arr[0];
+        for(let i = 0; i < arr.length; i++){
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    alert("gia tri lon nhat:" + max);
+
+
+</script>
+</body>
+</html>

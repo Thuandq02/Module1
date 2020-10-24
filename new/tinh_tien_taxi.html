@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//     B2. Tính tiền đi taxi từ số km đã đƣợc nhập vào, biết:
+//      •  1 km đầu giá 15000đ
+//      •  Từ km thứ 2 đến km thứ 5 giá 13500đ
+//      •  từ km thứ 6 trở đi giá 11000đ
+//      •  Nếu đi hơn 120km sẽ được giảm 10% trên tổng số tiền.
+
+    let km = +prompt("so km");
+    let sum = 0;
+    function soTien(km) {
+        if(km<0){
+            alert("bạn chưa đi km nào");
+        }else if(km==0){
+            alert("số tiền của bạn là: 0VND");
+        }else if(km<=1){
+            alert("số tiền của bạn là: 15.000VND");
+        }else if(km<=5){
+            sum = 15000 + (km-1)*13500;
+            alert("số tiền của bạn là: " + sum + "VND");
+        }else if(km<=120){
+            sum = 15000 + (km-1)*13500 + (km-5)*11000;
+            alert("số tiền của bạn là: " + sum + "VND");
+        }else{
+            sum = (15000 + (km-1)*13500 + (km-5)*11000)*0.9;
+            alert("số tiền của bạn là: " + sum + "VND");
+        }
+    }
+    soTien(km);
+
+
+</script>
+</body>
+</html>

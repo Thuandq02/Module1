@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="mobile_type">
+    <option value="nokia">Bật Nokia</option>
+    <option value="iphone">Bật Iphone</option>
+</select>
+<button type="button" onclick="turnOn()" >Bật</button>
+<button type="button" onclick="turnOff()">Tắt</button>
+<button type="button" onclick="sacPin()">Sạc</button>
+</body>
+</html>
+<script>
+    function Battery(enegy) {
+        this.enegy = enegy;
+        this.truPin = function () {
+            this.enegy -= 1;
+        }
+        this.sacPin = function () {
+            if(this.enegy < 100){
+                this.enegy +=1;
+            }else {
+                alert("Pin đầy")
+            }
+        }
+    }
+    function Mobile(name,message,status, battery) {
+        this.name = name;
+        this.message = message;
+        this.status = status;
+        this.battery = battery
+        this.turnOff = function () {
+            this.status = "Điện thoại đang tắt";
+        }
+        this.turnOn = function () {
+            this.status = "Điện thoại đang bật";
+            this.battery.truPin();
+        }
+    }
+    var pin = new Battery(100);
+    var pinNokia = new Battery(50);
+    var iphone8 = new Mobile("Iphone 8","",false,pin);
+    var nokia =new Mobile("Nokia","", false, pinNokia);
+    function turnOff() {
+        iphone8.turnOff();
+        console.log(iphone8);
+    }
+    function turnOn() {
+        var type = document.getElementById("mobile_type").value;
+        if(type == "nokia"){
+            nokia.turnOn();
+            console.log(nokia);
+        }else {
+            iphone8.turnOn();
+            console.log(iphone8);
+        }
+    }
+    function sacPin() {
+        iphone8.battery.sacPin();
+        console.log(iphone8.battery.enegy);
+    }
+</script>

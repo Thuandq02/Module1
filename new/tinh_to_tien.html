@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Bài tập 1: Nhập số tiền nguyên N đồng, đổi ra xem được bao nhiêu tờ 10 đồng, 5 đồng, 2 đồng và 1 đồng.
+    // Ví dụ: N = 543đ = 54 tờ 10đ + 0 tờ 5đ + 1 tờ 2đ + 1 tờ 1đ
+
+
+    let money = +prompt("so tien:");
+    function sotien(money) {
+        a = Math.floor(money/10);
+        b =Math.floor((money %10)/5);
+        c =Math.floor((money%5)/2);
+        d =(money-a*10- b*5 -c*2);
+        document.write(a + " to 10k" + "<br/>" + b + " to 5k" + "<br/>" + c + " to 2k" + "<br/>" + d + " to 1k");
+    }
+    sotien(money);
+</script>
+</body>
+</html>

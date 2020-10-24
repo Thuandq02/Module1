@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Temperature=function (c){
+        this.C = c;
+        this.getC=function (){
+            return this.c;
+        }
+        this.getConvert=function (){
+            return (9/5*this.C)+32;
+        }
+        this.getConvert1=function (){
+            return 273815-this.C;
+        }
+    }
+    let temperature = new Temperature(30);
+    let doc=temperature.getConvert();
+    let dok=temperature.getConvert1();
+    document.write('do F nhan duoc la: ' + doc + '<br/>' + 'do C nhan duoc la: ' + dok );
+</script>
+</body>
+</html>

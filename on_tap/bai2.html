@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bai 2:Nhập vào số nguyên có 3 chữ số, tính tổng 3 chữ số đó.
+    //     Ví dụ:Số 543 có tổng 3 chữ số là: 5 + 4 + 3 = 12
+
+    let a = +prompt(" ");
+    function number(a) {
+        b=Math.floor(a/100);
+        c=Math.floor((a%100)/10);
+        d=Math.floor(a%10);
+        sum=b + c + d;
+        alert(sum);
+    }
+    number(a);
+</script>
+</body>
+</html>

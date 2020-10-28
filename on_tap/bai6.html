@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 6.Xếp loại các học sinh trong lớp.
+    // Nhập vào họ tên, điểm toán, lý, hóa của các học sinh.
+    // Tính điểm trung bình 3 môn và phân loại như sau:
+    // •suất xắc: đtb >=9.0
+    // •giỏi: 9.0 > đtb >= 8.0
+    // •khá: 8.0 > đtb >= 6.5
+    // •trung bình: 6.5 > đtb >= 5.0
+    // •yếu: 5.0 > đtb >= 3.0
+    // •kém: 3.5 > đtb
+
+    let hoten = prompt("ho ten");
+    let toan = +prompt("diem toan");
+    let ly = +prompt("diem ly");
+    let hoa = +prompt("diem hoa");
+    let avg = (toan + ly + hoa)/3;
+    if (avg<3.5){
+        alert(hoten + " " + avg + "điểm. " + " đạt danh hiệu họ sinh kém");
+    }else if (avg<5){
+        alert(hoten + " " + avg + "điểm. " + "đạt danh hiệu học sinh yếu");
+    }else if (avg<6.5){
+        alert(hoten + " " + avg + "điểm. " + "đạt danh hiệu học sinh trung bình");
+    }else if (avg<8){
+        alert(hoten + " " + avg + "điểm. " + "đạt danh hiệu học sinh khá");
+    }else if (avg<9){
+        alert(hoten + " " + avg + "điểm. " + "đạt danh hiệu học sinh giỏi");
+    }else{
+        alert(hoten + " " + avg + "điểm. " + "đạt danh hiệu học sinh xuất sắc");
+    }
+
+</script>
+</body>
+</html>

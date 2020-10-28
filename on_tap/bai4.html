@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // bai 4: Nhập vào 4 số a, b, c, d.
+    //     a.In ra số lớn nhất và số nhỏ nhất.
+    //     b.In ra 2 số không phải số lớn nhất và số nhỏ nhất
+
+
+    let arr = [];
+    for (let i = 0; i < 4; i++) {
+        let value = prompt('nhap vao mot so ' + i);
+        arr.push(value);
+    }
+    let max = arr[0];
+    function maxArr() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    document.write('so lon nhat  la : ' + maxArr() + "<br>")
+    let min = arr[0];
+    function minArr() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    document.write('so nho nhat  la : ' + minArr() + "<br>")
+    function checkgiua(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] != max && arr[i] != min) {
+                document.write('so giua ' +  arr[i] +"<br>")
+            }
+        }
+    }
+    checkgiua(arr);
+
+
+</script>
+</body>
+</html>

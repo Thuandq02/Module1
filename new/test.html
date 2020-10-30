@@ -2,241 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style type="text/css">
-
-        .panel {
-            width: 60%;
-            margin: 0 auto;
-            border: solid #4267b2 1px;
-        }
-
-        .panel-heading {
-            background-color: #4267b2;
-            padding: 10px;
-            color: white;
-        }
-
-        .panel-body {
-            padding: 10px;
-        }
-
-        .panel-body label {
-            font-weight: bold;
-        }
-
-        .form-group {
-            display: block;
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            display: block;
-            width: 98%;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .table {
-            width: 100%;
-        }
-
-        .table tr {
-            border-bottom: solid blue 1px;
-        }
-
-    </style>
-
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/product.js"></script>
+    <script src="../js/manage-product.js"></script>
 </head>
+<style>
+    form{
+        width: 400px;
+        margin-left: 20px;
+        display: inline-block;
+    }
+    input {
+        margin-bottom: 10px;
+    }
+</style>
 <body>
-<div class="panel">
-    <div class="panel-heading">
-        Input product detail information
-    </div>
-    <div class="panel-body">
-        <form method="post">
-            <div class="form-group">
-                <label>Product Name:</label>
-                <input type="number" name="index" id="index" value="" hidden="true">
-                <input class="form-control" type="text" name="product_name" id="product_name" placeholder="Enter product name">
-            </div>
-            <div class="form-group">
-                <label>Manufacturer Name:</label>
-                <select class="form-control" id="manuafaturer_name" onchange="changeManufaturer()">
-                    <option value="">-- Choose --</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Category Name:</label>
-                <select class="form-control" id="category_name">
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Price:</label>
-                <input class="form-control" type="number" name="price" id="price" placeholder="Enter price" value="0" onkeyup="updateTotalPrice()">
-            </div>
-            <div class="form-group">
-                <label>Quantity:</label>
-                <input class="form-control" type="text" name="quantity" id="quantity" placeholder="Enter quantity" value="0" onkeyup="updateTotalPrice()">
-            </div>
-            <div class="form-group">
-                <label>Total Price:</label>
-                <input class="form-control" type="text" name="total_price" id="total_price" value="0" disabled="true">
-            </div>
-            <div class="form-group">
-                <button class="btn btn-success" type="button" onclick="addProduct()">Add Produce</button>
-                <button class="btn btn-danger" type="reset">Reset</button>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="panel" style="margin-top: 20px;">
-    <div class="panel-heading">
-        Product List
-    </div>
-    <div class="panel-body">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>No</th>
-                <th>Product Name</th>
-                <th>Manufacture Name</th>
-                <th>Category Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total Price</th>
-                <th></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tbody id="result">
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script type="text/javascript">
-    var manufactureList = {
-        "Apple": [
-            "IPhone 5", "IPhone 5s", "IPhone 12"
-        ],
-        "Sam Sung": [
-            "Galaxy S5", "Galaxy 10"
-        ],
-        "LG": [
-            "1", "2", "3"
-        ]
+<form id="form-add" class="form-group">
+    <fieldset style="margin: 50px;position: absolute;top: 700px;left: 40px;">
+        <legend style="color: royalblue">ADD PRODUCT</legend>
+        <input class="form-control" id="product-name" placeholder="Product Name">
+        <input class="form-control" id="product-price" placeholder="Product Price">
+        <input class="form-control" id="product-color" placeholder="Product Color">
+        <button type="button" class="btn btn-success" onclick="addProduct()">ADD</button>
+    </fieldset>
+</form>
+<form id="form-edit" class="form-group" style="display: none">
+    <fieldset>
+        <legend>EDIT PRODUCT</legend>
+        <input class="form-control" id="edit-name" placeholder="Product Name">
+        <input class="form-control" id="edit-price" placeholder="Product Price">
+        <input class="form-control" id="edit-color" placeholder="Product Color">
+        <button type="button" class="btn btn-success" onclick="editProduct()">Save</button>
+    </fieldset>
+</form>
+<div id="product-manage"></div>
+<script>
+    let shop = new ProductManage("Shop Quynh Artist");
+    shop.init();
+    display(shop.getHtml());
+    let currentProduct = 0;
+    function display(table) {
+        document.getElementById('product-manage').innerHTML = table;
+        Data.saveData(shop.products,PRODUCT);
     }
-
-    var productList = []
-
-    var manuafaturerTag = document.getElementById('manuafaturer_name')
-    for(var key in manufactureList) {
-        manuafaturerTag.innerHTML += `<option value='${key}'>${key}</option>`
-    }
-
-    function changeManufaturer() {
-        key = manuafaturerTag.value
-        categoryList = manufactureList[key]
-        console.log(categoryList)
-
-        var categoruTag = document.getElementById('category_name')
-        categoruTag.innerHTML = ''
-
-        if(categoryList != null) {
-            for (var i = 0; i < categoryList.length; i++) {
-                categoruTag.innerHTML += `<option value='${categoryList[i]}'>${categoryList[i]}</option>`
-            }
-        }
-    }
-
-    function updateTotalPrice() {
-        var price = document.getElementById('price').value
-        var quantity = document.getElementById('quantity').value
-
-        totalPrice = price * quantity
-
-        document.getElementById('total_price').value = totalPrice
-    }
-
-    var count = 0
     function addProduct() {
-        var index = document.getElementById('index').value
-        var productName = document.getElementById('product_name').value
-        var manufactureName = document.getElementById('manuafaturer_name').value
-        var categoryName = document.getElementById('category_name').value
-        var price = document.getElementById('price').value
-        var quantity = document.getElementById('quantity').value
-        var totalPrice = document.getElementById('total_price').value
-
-        var product = {
-            'productName': productName,
-            'manufactureName': manufactureName,
-            'categoryName': categoryName,
-            'price': price,
-            'quantity': quantity,
-            'totalPrice': totalPrice
-        }
-
-        if(index != '') {
-            productList[index] = product
-            showProduct()
-            return;
-        }
-
-        productList.push(product)
-
-        document.getElementById('result').innerHTML += `<tr>
-						<td>${++count}</td>
-						<td>${productName}</td>
-						<td>${manufactureName}</td>
-						<td>${categoryName}</td>
-						<td>${price}</td>
-						<td>${quantity}</td>
-						<td>${totalPrice}</td>
-						<td><button class="btn btn-warning" onclick="editProduct(${count - 1})">Edit</button></td>
-						<td><button class="btn btn-danger" onclick="deleteProduct(${count - 1})">Delete</button></td>
-					</tr>`
+        let name = document.getElementById("product-name").value;
+        let price = document.getElementById("product-price").value;
+        let color = document.getElementById("product-color").value;
+        let product = new Product(name,price,color);
+        shop.addProduct(product);
+        display(shop.getHtml());
+        document.getElementById('form-add').reset();
     }
-
-    function deleteProduct(index) {
-        console.log(index)
-        productList.splice(index, 1)
-        showProduct();
+    function edit(index) {
+        document.getElementById('form-edit').style.display = "inline-block";
+        let product = shop.getProductByIndex(index);
+        document.getElementById('edit-name').value = product.name;
+        document.getElementById('edit-price').value = product.price;
+        document.getElementById('edit-color').value = product.color;
+        currentProduct = index;
     }
-
-    function showProduct() {
-        document.getElementById('result').innerHTML = ''
-
-        for (var i = 0; i < productList.length; i++) {
-            document.getElementById('result').innerHTML += `<tr>
-						<td>${i+1}</td>
-						<td>${productList[i].productName}</td>
-						<td>${productList[i].manufactureName}</td>
-						<td>${productList[i].categoryName}</td>
-						<td>${productList[i].price}</td>
-						<td>${productList[i].quantity}</td>
-						<td>${productList[i].totalPrice}</td>
-						<td><button class="btn btn-warning" onclick="editProduct(${i})">Edit</button></td>
-						<td><button class="btn btn-danger" onclick="deleteProduct(${i})">Delete</button></td>
-					</tr>`
-        }
+    function editProduct() {
+        let name = document.getElementById("edit-name").value;
+        let price = document.getElementById("edit-price").value;
+        let color = document.getElementById("edit-color").value;
+        shop.products[currentProduct].edit(name,price,color);
+        display(shop.getHtml());
+        document.getElementById('form-edit').reset();
+        document.getElementById('form-edit').style.display = "none";
     }
-
-    function editProduct(index) {
-        var product = productList[index]
-        console.log(product)
-        document.getElementById('index').value = index
-        document.getElementById('product_name').value = product.productName
-        document.getElementById('manuafaturer_name').value = product.manufactureName
-        changeManufaturer()
-        document.getElementById('category_name').value = product.categoryName
-        document.getElementById('price').value = product.price
-        document.getElementById('quantity').value = product.quantity
-        document.getElementById('total_price').value = product.totalPrice
+    function del(index) {
+        shop.deleteProduct(index);
+        display(shop.getHtml());
     }
 </script>
-
-<script src="../Case_MD1/phones.js"></script>
 </body>
 </html>

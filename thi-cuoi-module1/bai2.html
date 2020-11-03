@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Câu 2: Xây dựng hàm trả về vị trí của phần tử cần tìm trong một mảng cho trước
+    // (Giả sử tất cả các phần tử trong mảng không giống nhau).
+    // Hàm có 2 tham số: số phần tử cần tìm, mảng cho trước.
+
+    // let arr = [1,65,32,64,2,77];
+    // let x = 64;
+    // function number(x, arr) {
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] === x) {
+    //             return i;
+    //         }
+    //     }
+    // }
+    //
+    // document.write(number(x, arr));
+
+
+
+    // Viết chương trình với một mảng số nguyên được khởi tạo trước.
+    // Nhập vào một giá trị bất kỳ, sau đó kiểm tra xem giá trị số nguyên bất kỳ vừa nhập có nằm trong mảng đã nhập hay không.
+
+    let arr = [2,42,3,25,6,66,4];
+    let z = +prompt("Nhap so nguyen bat ky.");
+    function checkIn(z, arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === z){
+                return "So " + z + " nam trong mang";
+            }else{
+                return  "So " + z + " khong nam trong mang";
+            }
+        }
+    }
+    document.write(checkIn(z, arr));
+
+
+</script>
+</body>
+</html>
